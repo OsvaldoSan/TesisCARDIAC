@@ -28,8 +28,11 @@
 
 \begin{document}
 	\maketitle
+
+    %¿Que es cardiac concurrente? opción de titulo inicial y breve descripción que conteste a las siguientes preguntas:
+    %¿Por que? ¿Por que no es suficiente CARDIAC?  ¿Que necesita? ¿Por que necesita el bootloader?
 	
-	\section{ Arranque del sistema}
+	\section{ Arranque del sistema} % Dejar esta parte como subsección
  	 
  	 Para lograr la concurrencia se ha necesitado cambiar la arquitectura de CARDIAC, los cambios han sido menores pero significativos
 	 para lograr el objetivo. Primero debemos definir un ``programa'' que será central, el \textit{bootloader}, basado
@@ -74,6 +77,8 @@
 	, en la página de \cite{noauthor_cardiac_nodate} se detalla una implementación que no contempla un sistema operativo por si se quiere revisar.
 	
 
+    % Maquina concurrente
+    % Nuestra maquina esta diseñada para funcionar solo con sistema operativo, ¿por que no funcionaria sin el?¿Por que es necesario?
 	\section{CARDIAC v2}
 	
 	En esta sección se describirán las características nuevas que tendrá la arquitectura para lograr la concurrencia. Primero vayamos a
@@ -160,6 +165,8 @@
 		para su funcionamiento.
 	\end{itemize}
 	
+	
+	% Explicar la nomenclatura antes de entrar aquí
 	\subsection{Zona de procesos}
 	
 	Vamos a detallar lo que hay exactamente en cada una de estas regiones, empezando por la \textbf{Zona de proceso}, pero
@@ -337,6 +344,9 @@
 	así que viene aquí por que la única acción posible es actualizar ese proceso y lanzar otro, si el proceso se fuese a borrar
 	o se añadiera un nuevo proceso se ``entra'' por otro lado al sistema operativo.
 	
+	
+	% Cambiarlo por sistema minimo
+	% Usar el diagrama y hacer más simple el diagrama
 	\subsection{Sistema operativo central}
 	
 	Ahora si estamos en condiciones de hablar como funciona el sistema el sistema operativo central, la forma en que llamamos
