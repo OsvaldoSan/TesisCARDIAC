@@ -31,55 +31,94 @@
 
     %¿Que es cardiac concurrente? opción de titulo inicial y breve descripción que conteste a las siguientes preguntas:
     %¿Por que? ¿Por que no es suficiente CARDIAC?  ¿Que necesita? ¿Por que necesita el bootloader?
+
+    \section{ CARDIAC ¿Concurrente? }
+    
+    CARDIAC comoarquitectura de computación sirvió muy bien para su tarea de explicar como funcionaba una computadora en los años
+    60, y aún hoy en día la ayuda que está arquitectura minimalista da para entender el funcionamiento de una computadora actual es muy relevante. Pero
+    a medida que avanzamos y requerimos conocimiento más especifico está arquitectura empieza a mostrar que es de otra época; sin embargo usar
+    como base está misma arquitectura para dar una explicación clara y concisa de temas que en su momento CARDIAC desconocia, como lo es la
+    concurencia y el paralelismo en computación, nos brinda un gran apoyo dado que no es necesario construir una arquitectura desde cero.
+    
+    De hecho si queremos convertir a CARDIAC en una arquitectura concurrente solo basta con hacer unos pequeños cambios en el lenguaje
+    de programación que tiene, la cantidad de memoria que soporta y algún apoyo adicional relacionado con el contador de programa. Las siguientes
+    secciones tratarán justamente de explicar como llevar a cabo estos cambios y como al final con estos cambios construimos una arquitectura
+    concurrente del mismo estilo que muchas de las computadoras que usamos hoy en día.
+    
+
 	
-	\section{ Arranque del sistema} % Dejar esta parte como subsección
- 	 
- 	 Para lograr la concurrencia se ha necesitado cambiar la arquitectura de CARDIAC, los cambios han sido menores pero significativos
-	 para lograr el objetivo. Primero debemos definir un ``programa'' que será central, el \textit{bootloader}, basado
-	 completamente en el mecanismo de \textit{bootstraping} que presenta la página de CARDIAC \cite{noauthor_cardiac_nodate}. El \textit{bootstraping} es un 
-	 mecanismo que todas las computadoras tienen hoy en día en un nivel mucho más complejo que el que se puede lograr con CARDIAC, sin
-	 embargo con CARDIAC se puede lograr el punto básico, crear un mecanismo de arranque inicial para la computadora, de tal forma
-	 que la computadora con solo instrucciones del usuario pueda recibir programas y ejecutarlas. 
-	 
-	 La idea del \textit{bootstraping} se explicará para el sistema CARDIAC normal pero es fácilmente extensible para el modificado
-	 que se presentará. Cuando se inicia CARDIAC en la dirección $00$ ya se encuentra la instrucción $01$, por lo que te pedirá
-	 que ingreses una entrada que se guardará en la dirección $01$, lo que se debe hacer es ingresar la instrucción $02$, así
-	 que el \textit{program counter} se moverá hacia la dirección $01$ y pedirá otra entrada a guardar en la dirección $02$, ahora
-	 ingresas $800$, así cuando se mueva el contador hacia $02$ se encontrará con que tiene que saltar hacia el inicio de nuevo. De
-	 esta forma se ha creado un \textit{loop} en el cual el usuario, siguiendo unas reglas simples, puede escribir su programa
-	 y ejecutarlo, sino estuviera este programa de arranque el usuario tendría que colocar su programa en CARDIAC de alguna forma
-	 que externa al propio funcionamiento del sistema. Las reglas son las siguientes, como se ha regresado a la dirección
-	 inicial el programa pedirá que el usuario ingrese un valor que se guardará en $01$, el usuario debe ingresar la dirección que
-	 quiere que sea la inicial para su futuro programa con el \textit{op-code} $0$, por que el contador leerá justamente esa instrucción
-	 en el siguiente paso, por lo que una vez hecho eso el usuario ingresará la primera instrucción de su programa, después llegará a la
-	 dirección $02$ y saltará al inicio para repetir el proceso, esto lo hará el usuario hasta que haya guardado la última instrucción
-	 de su programa en la dirección correspondiente, para terminar solo tendrá que escribir una instrucción más, la $8xx$, donde
-	 $xx$ es la dirección de inicio del programa que acaba de ingresar el usuario. Así el usuario ingresando \textbf{pares} de 
-	 instrucciones de la forma:
+	% En Pausa esta sección, a ser reacomodada
+	% Nueva idea de curso:
+	% 1. Cardiac concurrente: Explicación de concurrencia, necesidad de sistema operativo, breve explicación de la idea general de este SO
+	% 2. Profundización en cada componente
+	% 3, Union de componentes usando diagrama de flujo para ayudarse
 	
-	 \begin{verbatim}
-		 010
-		 111
-		 ...
-		 
-		 ...		 
-		 020
-		 900
-		 810
-	 \end{verbatim}
 	
-	cargará su programa en iniciando en la dirección $10$ y terminando en la dirección $20$ con la instrucción final del programa pero
-	no del usuario por que el usuario aún saltará hacia el inicio de su programa con una instrucción que ya no va en forma de par. En
-	este punto se puede preguntar como regresará al \textit{loop} de inicio una vez fuera, pero ese es un detalle que se solucionará con
-	el administrador de tareas, ya que este \textit{bootstraping} esta creado para ser el \textit{bootloader} en la implementación concurrente
-	de CARDIAC que complementa al \textbf{sistema operativo} que esta tendrá, así que se puede considerar a esta forma de
-	agregar programas como una versión incompleta y que no será la definitiva
-	, en la página de \cite{noauthor_cardiac_nodate} se detalla una implementación que no contempla un sistema operativo por si se quiere revisar.
-	
+%	\section{ Arranque del sistema} % Dejar esta parte como subsección
+% 	 
+% 	 
+% 	 Para lograr la concurrencia se ha necesitado cambiar la arquitectura de CARDIAC, los cambios han sido menores pero significativos
+%	 para lograr el objetivo. Primero debemos definir un ``programa'' que será central, el \textit{bootloader}, basado
+%	 completamente en el mecanismo de \textit{bootstraping} que presenta la página de CARDIAC \cite{noauthor_cardiac_nodate}. El \textit{bootstraping} es un 
+%	 mecanismo que todas las computadoras tienen hoy en día en un nivel mucho más complejo que el que se puede lograr con CARDIAC, sin
+%	 embargo con CARDIAC se puede lograr el punto básico, crear un mecanismo de arranque inicial para la computadora, de tal forma
+%	 que la computadora con solo instrucciones del usuario pueda recibir programas y ejecutarlas. 
+%	 
+%	 La idea del \textit{bootstraping} se explicará para el sistema CARDIAC normal pero es fácilmente extensible para el modificado
+%	 que se presentará. Cuando se inicia CARDIAC en la dirección $00$ ya se encuentra la instrucción $01$, por lo que te pedirá
+%	 que ingreses una entrada que se guardará en la dirección $01$, lo que se debe hacer es ingresar la instrucción $02$, así
+%	 que el \textit{program counter} se moverá hacia la dirección $01$ y pedirá otra entrada a guardar en la dirección $02$, ahora
+%	 ingresas $800$, así cuando se mueva el contador hacia $02$ se encontrará con que tiene que saltar hacia el inicio de nuevo. De
+%	 esta forma se ha creado un \textit{loop} en el cual el usuario, siguiendo unas reglas simples, puede escribir su programa
+%	 y ejecutarlo, sino estuviera este programa de arranque el usuario tendría que colocar su programa en CARDIAC de alguna forma
+%	 que externa al propio funcionamiento del sistema. Las reglas son las siguientes, como se ha regresado a la dirección
+%	 inicial el programa pedirá que el usuario ingrese un valor que se guardará en $01$, el usuario debe ingresar la dirección que
+%	 quiere que sea la inicial para su futuro programa con el \textit{op-code} $0$, por que el contador leerá justamente esa instrucción
+%	 en el siguiente paso, por lo que una vez hecho eso el usuario ingresará la primera instrucción de su programa, después llegará a la
+%	 dirección $02$ y saltará al inicio para repetir el proceso, esto lo hará el usuario hasta que haya guardado la última instrucción
+%	 de su programa en la dirección correspondiente, para terminar solo tendrá que escribir una instrucción más, la $8xx$, donde
+%	 $xx$ es la dirección de inicio del programa que acaba de ingresar el usuario. Así el usuario ingresando \textbf{pares} de 
+%	 instrucciones de la forma:
+%	
+%	 \begin{verbatim}
+%		 010
+%		 111
+%		 ...
+%		 
+%		 ...		 
+%		 020
+%		 900
+%		 810
+%	 \end{verbatim}
+%	
+%	cargará su programa en iniciando en la dirección $10$ y terminando en la dirección $20$ con la instrucción final del programa pero
+%	no del usuario por que el usuario aún saltará hacia el inicio de su programa con una instrucción que ya no va en forma de par. En
+%	este punto se puede preguntar como regresará al \textit{loop} de inicio una vez fuera, pero ese es un detalle que se solucionará con
+%	el administrador de tareas, ya que este \textit{bootstraping} esta creado para ser el \textit{bootloader} en la implementación concurrente
+%	de CARDIAC que complementa al \textbf{sistema operativo} que esta tendrá, así que se puede considerar a esta forma de
+%	agregar programas como una versión incompleta y que no será la definitiva
+%	, en la página de \cite{noauthor_cardiac_nodate} se detalla una implementación que no contempla un sistema operativo por si se quiere revisar.
+%	
 
     % Maquina concurrente
     % Nuestra maquina esta diseñada para funcionar solo con sistema operativo, ¿por que no funcionaria sin el?¿Por que es necesario?
-	\section{CARDIAC v2}
+	\section{CARDIAC como arquitectura concurrente}
+	
+	
+	Seamos más claros con el concepto de concurrencia; la podemos entender como la ´´habilidad'' de la computadora de imitar una ejecución
+	de programas en paralelo, es decir, al mismo tiempo. Está se logra hoy en día gracias a las velocidades tan altas que alcanza un
+	CPU moderno, pues en un segundo puede hacer miles de operaciones y con esto es capaz de ejecutar una parte del programa A, ceder el
+	control al programa B y antes de que el usuario lo note regresar al programa A, consiguiendo que el usuario crea que se están ejecutando
+	los dos programas al mismo tiempo \cite{ben_Ari}. 
+	
+	Hoy en día es el principal trabajo de un sistema operativo, decidir que programa se va a
+	ejecutar y cuando se va a detener para ejecutar otro. Si bien el sistema operativo realiza muchas tareas podemos resumirlo como \textit{el
+	administrador de los recursos del equipo}, de está forma englobamos tanto la administración de la memoria, como el uso del CPU, hasta
+	el control de los dispositivos de entrada y salida.
+	
+	
+	% En este punto se debería continuar hablando del sistema operativo y como llegaremos a necesitarlo
+	
 	
 	En esta sección se describirán las características nuevas que tendrá la arquitectura para lograr la concurrencia. Primero vayamos a
 	las instrucciones, estas se mantendrán sin cambios a excepción de la instrucción \textbf{HALT} o $9000$ para terminar un programa que
