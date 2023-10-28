@@ -17,7 +17,7 @@
 pruebas/
 # Saved
 *~
-
+*.bak
 ## Intermediate documents:
 *.dvi
 *.xdv
