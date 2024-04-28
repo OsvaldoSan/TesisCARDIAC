@@ -1,0 +1,177 @@
+\documentclass[letterpaper,12pt,oneside]{article}
+\usepackage[top=1in, left=1in, right=1in, bottom=1in]{geometry}
+%-----------------------__--------
+%https://es.overleaf.com/project/642e50d937469ff17340bdc4
+% Tesis UNAM https://tex.stackexchange.com/questions/234265/unam-thesis-title-page-portada-tesis-unam
+
+%\usepackage{parskip} % Add the parskip package
+
+
+\usepackage{setspace} % Add the setspace package
+\setstretch{1.5} % Set line spacing to double
+
+\usepackage{pdfpages}
+\usepackage{lipsum}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish,es-nodecimaldot,es-tabla]{babel}
+
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{tikz}
+\usepackage{setspace}
+
+%% para codigos
+\usepackage{listings}
+
+
+%Subfiguras
+\usepackage{caption}
+\usepackage{subcaption}
+
+% Para referencias 
+\usepackage{hyperref}
+\usepackage{apacite}
+\usepackage{url}
+
+%\addbibresource{CARDIAC}
+
+
+\title{Anteproyecto de titulación para licenciatura en Matemáticas Aplicadas y Computación}
+
+\begin{document}
+
+	%%\frontmatter
+	%%\pagestyle{plain} % Set page style to "plain" for the front matter
+    \maketitle
+	
+	\clearpage
+	
+	\section{Datos del estudiante}
+	
+	\begin{enumerate}
+		\item Nombre : Martín Osvaldo Santos Soto
+		\item Dirección : Sabino 71, Santa María La Ribera, Cuauhtémoc, Ciudad de México
+		\item Número Telefónico : 7757573645 y 5577284216
+		\item Número de Cuenta : 41809069-1
+		\item Promedio : 8.64
+		\item Generación : 2018-2021
+		\item Periodo : 2024-2
+		\item Carrera : Matemáticas Aplicadas y Computación
+		\item Opción de titulación : Tesis
+		\item E-Mail : osvaldosantos823@gmail.com
+	\end{enumerate}
+	
+	\section{Datos del asesor}
+		\begin{enumerate}
+			\item Nombre : Jorge Vasconselos
+		    \item Dirección : 
+			\item Número Telefónico :
+			\item Profesión : 
+		
+		\end{enumerate}		
+
+	
+		\section{Titulo del trabajo}
+		
+		El titulo del trabajo será \textbf{CARDIAC: La evolución hacia un modelo concurrente y paralelo}.
+		
+		\section{Hipótesis}
+		
+		Se plantea como hipótesis que con el uso de un lenguaje de programación orientado a objetos, como lo es Java, se podrá
+		crear una maquina virtual que pueda simular los cálculos que \textit{CARDIAC} realiza con cartón y papel. Así como
+		incrementar la potencia de los cálculos que puede realizar, sin dejar de lado sus simplicidad; logrando
+		desarrollar también en la misma maquina virtual versiones evolucionadas del modelo original que permitan
+		concurrencia y paralelismo de procesos para poder ser una herramienta útil y sencilla para los estudiantes.
+		
+		
+		\section{Objetivo del trabajo}
+			
+			El objetivo del proyecto es ser una guía didáctica para los estudiantes de los primeros semestres
+			una computadora a nivel general, así como entender los sucesos históricos que confluyeron para la creación de está. Con ello
+			ser capaces de explorar
+			tanto los conceptos de computación concurrente y paralela como
+			el concepto de sistema operativo y como no podríamos tener computación concurrente o paralela como
+			la conocemos sin un sistema operativo.
+		
+		\section{Esquema o indice}
+		
+		La tesis estará dividida en los siguientes capítulos:
+		
+		\begin{enumerate}
+			\item Introducción
+			\item Capitulo 1 Historia de la computación
+			\item Capitulo 2 Arquitectura básica de las computadoras
+			\item Capitulo 3 Evolución del modelo
+			\item Conclusiones
+			\item Bibliografía
+			\item Anexos
+			
+		\end{enumerate}
+		
+		
+		
+		\subsection{Capitulo 1 Historia de la computación}
+			Esté capitulo como su nombre indica estará centrado en la historia de la computación, en como
+			numerosos sucesos históricos confluyeron para la creación de lo que hoy conocemos como computadora, así
+			como dar nombre a esas personas que dieron forma a la computación como la conocemos hoy en día.
+			
+			Empezando por los sucesos más antiguos y que quizá más de uno podrida pensar que no tienen relación con las
+			primeras computadoras, llegando a ese limbo dónde una calculadora del momento era muy similar
+			a una computadora, hasta el punto dónde definitivamente toman caminos distintos y la potencia de calculo
+			de estás nuevas maquinas es llevada a otros niveles por la necesidades que se tenían. Exploramos las primeras
+			computadoras que ya eran reconocidas como tales y vemos como al pasar de los años las mismas necesidades y
+			creatividad de las personas hacen que las computadoras no paren de evolucionar.
+			
+			Vemos el nacimiento de los lenguajes de programación como consecuencia a la búsqueda de una programación
+			más sencilla de estás maquinas que cada vez se volvían más complejas. Y como el desarrollo de los sistemas
+			operativos hace que se de un salto en las capacidades de estás computadoras, pero sobre todo
+			en la simplicidad que es para el usuario usarlas.
+			
+			Casi cerrando el capitulo encontramos la creación de modelos didácticos de computación para la enseñanza desarrollados
+			en los años 60, cuando apenas empezaban a aparecer las computadoras en lugares públicos, en está sección se presenta por primera
+			vez \textit{CARDIAC} y se explica la importancia que estos modelos didácticos tuvieron y tienen para el aprendizaje.
+			
+			Para el cierre tenemos un breve repaso sobre la actualidad de las computadoras para situarnos en la etapa
+			desde la cual se está contando está historia.
+			
+		\subsection{Capitulo 2 Arquitectura básica de las computadoras}
+		
+			En esté capitulo se explicará como está constituida una computadora que tiene la arquitectura más común de hoy en día, la
+			arquitectura von Neumann, repasando las características que debe tener una computadora para ser de está arquitectura
+			y las ventajas que ofrece. También se revisará el sistema de arranque de una computadora y como se desarrollo para disminuir
+			la interacción necesaria entre el usuario y la maquina; y precisamente en el tema de la interacción también
+			se toca el tema del sistema operativo, explicando la necesidad que conllevo al desarrollo de esté proceso tan especial para una maquina.
+			
+			En el mismo capitulo se tratan los conceptos de la computación concurrente y paralela, explorando que son, como surgieron,
+			las variedades que podemos encontrar y las complicaciones que puede generar tener una sistema de computación
+			con estás características.
+			
+			Para cerrar se explica en su totalidad lo que es el modelo de computo didáctico  que se tomo de base para hacer está tesis,
+			explorando su arquitectura, su lenguaje y el flujo de trabajo que se debe seguir con esté modelo.
+		
+		\subsection{Capitulo 3 Evolución del modelo}	
+		
+			Es el capitulo central de la tesis, los dos capitulos anteriores convergen en esté, pues aquí se exponen las tres versiones
+			de \textit{CARDIAC}	desarrolladas. Empezando por el modelo original implementado en Java para sustituir los cálculos
+			manuales por calculos que realiza la maquina viritual, pero permitiendo al usuario comprender como interactuan los
+			elmentos dentro de la maquina para realizar tales calculos. 
+			
+			Continuando se encuentra la explicación de la primer evolución del modelo, que es la
+			versión concurrente, y que explica no sólo el funcionamiento de la maquina virtual, sino los elementos
+			de hardware y de software que se requirieron para
+			lograr implementar la ejecución de procesos concurres en una computadora basada en CARDIAC, además de explicar
+			el software desarrollado en el lenguaje de \textit{CARDIAC} para hacer posible tal ejecución.
+			
+			Para finalizar de la misma forma que se explica el modelo concurrente se explica el modelo paralelo y concurrente, aprovechando
+			que a este punto muchos elementos del modelo han sido explicados se puede ser más ágil en la explicación y
+			centrarse más en los casos de uso.
+		
+		
+		\section{Bibliografía preliminar}
+		
+		
+
+\end{document}
+
