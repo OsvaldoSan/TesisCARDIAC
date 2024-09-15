@@ -1,0 +1,122 @@
+\section*{Máquina Virtual CARDIAC: Un modelo didáctico de la computación}
+
+Esta es una máquina virtual diseñada para explorar la computación concurrente y paralela utilizando el reconocido modelo CARDIAC, creado por David Hagelbarger y Saul Fingerman.
+
+Esta aplicación fue creada para la tesis: \textbf{CARDIAC: La evolución hacia un modelo concurrente y paralelo}, y está destinada a asistir a cualquier estudiante que la necesite.
+
+\section*{¿Cómo Usar Esta Aplicación?}
+
+\subsection*{Opción Binaria}
+
+Para usar esta versión en Windows o Linux, necesitas instalar la versión más reciente del Entorno de Ejecución de Java. Puedes encontrarla en \href{https://www.java.com/en/}{Java}.
+
+Para buscar los binarios, ve al \href{https://github.com/OsvaldoSan/CARDIAC_VM}{repositorio} y haz clic en la sección \textit{releases}.
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.5\textwidth]{media_g/realese_section.png}
+\caption{Sección de Releases}
+\end{figure}
+
+Una vez que hayas hecho clic allí, verás la siguiente imagen:
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.5\textwidth]{media_g/realse_section_1.png}
+\caption{Dentro de la sección de releases}
+\end{figure}
+
+Aquí podrás ver dos archivos zip que contienen el código binario para ejecutar el programa en Windows y GNU/Linux. Descarga la versión adecuada para tu sistema operativo.
+
+\subsection*{Opción Binaria: Linux}
+
+Si descargas la versión para Linux, necesitas descomprimir el archivo, y verás las siguientes carpetas:
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.5\textwidth]{media_g/folders_linuxv.png}
+\caption{Carpetas de la versión de Linux}
+\end{figure}
+
+Estas carpetas contienen toda la información necesaria para que el programa funcione. Luego, ve a la carpeta llamada \textit{bin}, donde verás los siguientes archivos:
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.5\textwidth]{media_g/linux_binary_files.png}
+\caption{Archivos binarios de Linux}
+\end{figure}
+
+A continuación, necesitas ejecutar el archivo llamado \textbf{CVM.sh}. Puedes ejecutarlo desde el explorador de archivos haciendo doble clic en él, lo que mostrará el siguiente diálogo. Aquí, haz clic en "RUN".
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.5\textwidth]{media_g/executing_linux_file_twoclics.png}
+\caption{Opción para ejecutar en Linux}
+\end{figure}
+
+Si encuentras algún problema con esto, otra opción es ejecutarlo desde la línea de comandos del terminal con el siguiente comando:
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.5\textwidth]{media_g/linux_program_execution_tcl.png}
+\caption{Línea de comando de Linux}
+\end{figure}
+
+Después de eso, verás que el programa se inicia:
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.5\textwidth]{media_g/start_window_on_linux.png}
+\caption{Interfaz gráfica}
+\end{figure}
+
+Las instrucciones sobre cómo usar la máquina virtual se encuentran en el PDF incluido en el repositorio. Este PDF hace referencia a la tesis para este proyecto.
+
+\subsection*{Opción Binaria: Windows}
+
+Si usas la opción para Windows, después de descargar y extraer el archivo \textbf{CVM\_Windows.zip}, verás las siguientes carpetas:
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.5\textwidth]{media_g/folders_windows.png}
+\caption{Carpetas dentro de CVM\_Windows}
+\end{figure}
+
+Estas carpetas contienen toda la información necesaria para que la aplicación funcione correctamente. Para ejecutar la aplicación, ve a la carpeta \textit{bin}, donde verás varios archivos. Busca el archivo llamado \textit{CVM}, que es un archivo por lotes de Windows, como se muestra en la imagen:
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.5\textwidth]{media_g/binary_files_windws.png}
+\caption{Archivos binarios para Windows}
+\end{figure}
+
+Una vez que hayas identificado el archivo, simplemente haz doble clic en él, y se abrirá una ventana de \textit{CMD} que iniciará la ventana principal de \textit{CARDIAC}.
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.5\textwidth]{media_g/starting_cardiac_windows.png}
+\caption{Iniciando CARDIAC en Windows}
+\end{figure}
+
+Las instrucciones sobre cómo usar la máquina virtual se encuentran en el PDF incluido en el repositorio. Este PDF hace referencia a la tesis para este proyecto.
+
+\clearpage
+
+\section*{Crear un Ejecutable con el Código Fuente}
+
+Si prefieres crear un ejecutable a partir del código fuente, puedes hacerlo. Primero, accede al \href{https://github.com/OsvaldoSan/CARDIAC_VM}{repositorio} y clona el código.
+
+Luego, simplemente sigue las reglas del framework \href{https://maven.apache.org/}{Apache Maven} y edita el archivo \textit{pom} según tus especificaciones.
+
+Aquí tienes un ejemplo de lo fácil que es desplegar la aplicación usando Maven en el terminal de Linux:
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.5\textwidth]{media_g/maven_execution_linux.png}
+\caption{Maven en Linux}
+\end{figure}
+
+Una de las mejores cosas de usar Maven para desplegar la aplicación es que, dependiendo del sistema operativo que utilices, se creará el archivo binario correspondiente. Así que, si deseas un binario para Windows, necesitarás desplegar la aplicación en un sistema de archivos de Windows.
+
+Para más información, visita \href{https://maven.apache.org/}{Apache Maven}.
+
